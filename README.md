@@ -15,7 +15,7 @@ Two function are used in this project:
       serverless function <code>PictureHandler</code>.</li>
 </ul>
 
-All of that is achieved by using RabbitMQ, Node-RED, Nuclio, Arduino IDE, Docker.
+All of that is achieved by using RabbitMQ, Node-RED, Nuclio, Arduino IDE, IFTTT, Docker.
 
 ## Docker
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow developers to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
@@ -54,3 +54,18 @@ After your Nuclio instance has been successfully started, browse to http://local
 Create a new project named MovementHandler
 Click on <b>Create Function<b> and then on <b>Import</b> to upload "MovementHandler" and "PictureHandler" functions by using <code>motion-alert.yaml</code>, <code>send-picture.yaml</code> files respectively. You can find these files in <code>./yaml-function</code> folder.
 Click on <b>Create Function</b> and then on <b>Deploy</b>
+
+
+## IFTTT
+If This Then That (IFTTT) is an online service that automates Web-based tasks so that when user-specified events occur, follow-up tasks are triggered and handled.
+
+### How to use
+Register on IFTTT and create a new applet by adding on IF clause WebHooks service > Receive a web request with the following parameter:
+
+![IFTTT_trigger](https://user-images.githubusercontent.com/51193421/210283487-a2d3e078-5f7d-436f-8381-6da30d00858b.png)
+
+and with a <code>THEN</code> clause Telegram > Send Message with the following parameters:
+
+![IFTTT_gmail](https://user-images.githubusercontent.com/51193421/210283394-81a1f3d4-493d-4e4e-ba9d-ba915f33f31d.png)
+
+You can repeat this steps in order to create a second trigger with the same <code>IF</code> clause(web request) and the Telegram <code>THEN</code> clause.
