@@ -6,6 +6,9 @@ The project aims to simulate a Smart Home alarm based on a motion sensor placed 
 For the purpose of demonstrating the project, the sensor sending data will be simulated by using Node-RED. Sensor will send the output to a serverless function; the servlerless function, once triggered, will send an email by using IFTTT. Another serverless function, called SendPicture, will send a picture of "intruder" via Telegram by using IFTTT too.
 
 ## Architecture
+![image](https://user-images.githubusercontent.com/51193421/210285006-b4df8cb8-f832-4d95-8eec-7ccdcbde8e84.png)
+
+
 Two function are used in this project:
 
 <ul>
@@ -69,3 +72,6 @@ and with a <code>THEN</code> clause Telegram > Send Message with the following p
 ![IFTTT_gmail](https://user-images.githubusercontent.com/51193421/210283394-81a1f3d4-493d-4e4e-ba9d-ba915f33f31d.png)
 
 You can repeat this steps in order to create a second trigger with the same <code>IF</code> clause(web request) and the Telegram <code>THEN</code> clause.
+  
+## ESP32 Module
+
