@@ -63,11 +63,11 @@ Click on <b>Create Function</b> and then on <b>Deploy</b>
 If This Then That (IFTTT) is an online service that automates Web-based tasks so that when user-specified events occur, follow-up tasks are triggered and handled.
 
 ### How to use
-Register on IFTTT and create a new applet by adding on IF clause WebHooks service > Receive a web request with the following parameter:
+Register on IFTTT and create a new applet by adding on IF clause WebHooks service > <b>Receive a web request</b> with the following parameter:
 
 ![IFTTT_trigger](https://user-images.githubusercontent.com/51193421/210283487-a2d3e078-5f7d-436f-8381-6da30d00858b.png)
 
-and with a <code>THEN</code> clause Telegram > Send Message with the following parameters:
+  and with a <code>THEN</code> clause Telegram > <b>Send yourself</b> an email with the following parameters:
 
 ![IFTTT_gmail](https://user-images.githubusercontent.com/51193421/210283394-81a1f3d4-493d-4e4e-ba9d-ba915f33f31d.png)
 
