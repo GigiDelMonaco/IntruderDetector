@@ -73,5 +73,26 @@ Register on IFTTT and create a new applet by adding on IF clause WebHooks servic
 
 You can repeat this steps in order to create a second trigger with the same <code>IF</code> clause(web request) and the Telegram <code>THEN</code> clause.
   
-## ESP32 Module
+## Node-RED
+Built on Node.js, Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
+It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+  
+### How to use
+Start Node-RED instance using docker. [Click here](https://nodered.org/docs/getting-started/docker) for the reference guide.
+```
+$ docker run -it -p 1880:1880 -v node_red_data:/data --name mynodered nodered/node-red
+```
+  
+Once the container is started and running, follow these steps:
+<ul>
+  <li>Browse to http://localhost:1880 to open the homepage of Node-RED</li>
+  <li> Import the ([flow.json])(Node-RED/flow.json)</li>
+  <li> Press Manage palette and from Install tab and search for the following palette:
+    <ul>
+      <li> node-red-dashboard </li>
+      <li >node-red-contrib-mqtt-broker </li>
+    </ul>
+<li>Press on one of the mqtt nodes, edit mqtt-broker node and change according with your MQTT Broker, Server and _Port in <b>Connection</b> and User and Password in <b>Security</b></li>
+</ul>
 
+## ESP32-CAM
