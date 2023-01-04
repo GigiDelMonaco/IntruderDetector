@@ -7,8 +7,7 @@ The project aims to simulate a Smart Home alarm based on a motion sensor placed 
 For the purpose of demonstrating the project, the sensor sending data will be simulated by using Node-RED. Sensor will send the output to a serverless function; the servlerless function, once triggered, will send an email by using IFTTT. Another serverless function, called SendPicture, will send a picture of "intruder" via Telegram by using IFTTT too.
 
 ## Architecture
-![image](https://user-images.githubusercontent.com/51193421/210285006-b4df8cb8-f832-4d95-8eec-7ccdcbde8e84.png)
-
+![Motion_detector_architecture](https://user-images.githubusercontent.com/51193421/210550312-730ac36b-fdc2-455b-8403-c0c7c6772b6d.png)
 
 Two function are used in this project:
 
