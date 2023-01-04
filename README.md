@@ -12,7 +12,7 @@ For the purpose of demonstrating the project, the sensor sending data will be si
 Two function are used in this project:
 
 <ul>
-  <li><code>SendAlert</code>: Node-RED flow that simulate the motion sensor in order to trigger the alarm.<li>
+  <li><code>SendAlert</code>: Node-RED flow that simulate the motion sensor in order to trigger the alarm.</li>
   <li><code>MovementHandler</code>: sends email notification to the owner when a movement is detected.</li>
   <li><code>intruder_detector_bot</code>: using the specific command <code>/take_picture</code> sends the picture of intruder on the Telegram chat with the owner.</li>
 </ul>
