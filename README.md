@@ -1,7 +1,8 @@
 # Intruder Detector
 
 ## Introduction
-The project aims to simulate a Smart Home alarm based on a motion sensor placed near the house door. Whenever  the motion sensor detects a movement,  sends a notify email to  the owner and a picture of the door situation via Telegram.
+This is a project for the exam of Serverless Computing for IoT in my Master Degree course.
+The project aims to simulate a Smart Home alarm based on a motion sensor placed near the house door. Whenever  the motion sensor detects a movement,  sends a notify email to  the owner so that the owner can take a picture using a bot Telegram connected to live cam by using ESP32 module
 
 For the purpose of demonstrating the project, the sensor sending data will be simulated by using Node-RED. Sensor will send the output to a serverless function; the servlerless function, once triggered, will send an email by using IFTTT. Another serverless function, called SendPicture, will send a picture of "intruder" via Telegram by using IFTTT too.
 
@@ -12,10 +13,9 @@ For the purpose of demonstrating the project, the sensor sending data will be si
 Two function are used in this project:
 
 <ul>
+  <li><code>SendAlert</code>: Node-RED flow that simulate the motion sensor in order to trigger the alarm.<li>
   <li><code>MovementHandler</code>: sends email notification to the owner when a movement is detected.</li>
-  <li><code>PictureHandler</code>: sends the picture of intruder on the Telegram chat with the owner.</li>
-  <li><code>SendPicture</code>: ESP32 function installed on arduino board which take the picture and send it using mqtt protocol to the
-      serverless function <code>PictureHandler</code>.</li>
+  <li><code>intruder_detector_bot</code>: using the specific command <code>/take_picture</code> sends the picture of intruder on the Telegram chat with the owner.</li>
 </ul>
 
 All of that is achieved by using RabbitMQ, Node-RED, Nuclio, Arduino IDE, IFTTT, Docker.
@@ -71,8 +71,6 @@ Register on IFTTT and create a new applet by adding on IF clause WebHooks servic
 
 ![IFTTT_gmail](https://user-images.githubusercontent.com/51193421/210283394-81a1f3d4-493d-4e4e-ba9d-ba915f33f31d.png)
 
-You can repeat this steps in order to create a second trigger with the same <code>IF</code> clause(web request) and the Telegram <code>THEN</code> clause.
-  
 ## Node-RED
 Built on Node.js, Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
 It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
@@ -95,4 +93,38 @@ Once the container is started and running, follow these steps:
 <li>Press on one of the mqtt nodes, edit mqtt-broker node and change according with your MQTT Broker, Server and _Port in <b>Connection</b> and User and Password in <b>Security</b></li>
 </ul>
 
-## ESP32-CAM
+## Telegram Bot
+Now, you need to create the bot telegram connected with the live-camera. In order to do that, follow these steps:
+
+- Open Telegram and search for BotFather
+- Type /newBot
+- Specify intruder_detector_bot as a name for your bot
+- Choose a unique id by following BotFather instruction
+- Copy the token it gives to you and paste it in the <b>intruder_detector_bot.py<b>
+
+## Python 3.8
+In this project i used python version 3.8
+You need to install pip too; you can find instructions [here](https://phoenixnap.com/kb/install-pip-windows#:~:text=1%20Download%20PIP%20get-pip.py.%20Before%20installing%20PIP%2C%20download,Command%20Prompt%20if%20it%20isn%E2%80%99t%20already%20open.%20)
+
+One you've installed pip, run this command
+```
+pip install <module name>
+```
+
+and install these dependencies:
+
+- urllib3
+- pyTelegramBotAPI : references [here](https://github.com/eternnoir/pyTelegramBotAPI)
+
+For my purposes i used PyCharm IDE, but you can use the IDE/Editor you prefer.
+
+## ESP32-Cam Module
+In order to install and configure ESP32-Cam i suggest you to follow this [guide](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+
+Once you've completed the configuration, start <code>Arduino IDE</code> and open <code>arduino.ino</code> file.
+
+- Connect your module with usb-c wire in the port that you've specified during installation, choosing esp32 board.
+- Replace SSID and PASSWORD with your wifi credentials.
+- <code>Verify</code> and <code>Upload</code> the Sketch on the ESP32 MCU board.
+- Open the Serial monitor and check if connected. It will be displayed an url where the cam in streaming. Copy this url and paste it on the python script.
+
