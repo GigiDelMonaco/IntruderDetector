@@ -1,7 +1,6 @@
 const mqtt = require('mqtt')
 const rest = require('restler')
 const event_key = "your key on webook documentation"
-const url = 'mqtt://your IP address'
 
 
 exports.handler = function(context, event) {
