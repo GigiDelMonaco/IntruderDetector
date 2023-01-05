@@ -9,7 +9,7 @@ For the purpose of demonstrating the project, the sensor sending data will be si
 ## Architecture
 ![Motion_detector_architecture](https://user-images.githubusercontent.com/51193421/210550312-730ac36b-fdc2-455b-8403-c0c7c6772b6d.png)
 
-Two function are used in this project:
+Three function are used in this project:
 
 <ul>
   <li><code>SendAlert</code>: Node-RED flow that simulate the motion sensor in order to trigger the alarm.</li>
@@ -54,7 +54,7 @@ $ docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/
 After your Nuclio instance has been successfully started, browse to http://localhost:8070 to access to Nuclio dashboard. Then, simply follow these steps:
 
 Create a new project named MovementHandler
-Click on <b>Create Function<b> and then on <b>Import</b> to upload "MovementHandler" and "PictureHandler" functions by using <code>motion-alert.yaml</code>, <code>send-picture.yaml</code> files respectively. You can find these files in <code>./yaml-function</code> folder.
+Click on <b>Create Function<b> and then on <b>Import</b> to upload "MovementHandler" function by using <code>movement-handler.yaml</code> file. You can find these files in <code>yaml-function</code> folder.
 Click on <b>Create Function</b> and then on <b>Deploy</b>
 
 
@@ -105,7 +105,7 @@ Now, you need to create the bot telegram connected with the live-camera. In orde
 In this project i used python version 3.8
 You need to install pip too; you can find instructions [here](https://phoenixnap.com/kb/install-pip-windows#:~:text=1%20Download%20PIP%20get-pip.py.%20Before%20installing%20PIP%2C%20download,Command%20Prompt%20if%20it%20isn%E2%80%99t%20already%20open.%20)
 
-One you've installed pip, run this command
+Once you've installed pip, run this command
 ```
 pip install <module name>
 ```
